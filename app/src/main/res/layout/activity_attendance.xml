@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_shape"
+    tools:context=".AttendanceActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_500">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_toRightOf="@id/iv_back"
+                android:text="Attendance"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ProgressBar
+        android:layout_below="@id/toolbar"
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="-8dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/teal_200"
+        android:scaleY="1.5"
+        android:visibility="invisible" />
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress_bar"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:mcv_selectionColor="@color/purple_700"
+        app:mcv_selectionMode="none"
+        app:mcv_showOtherDates="decorated_disabled" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/present_card"
+        android:layout_below="@id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="5dp">
+
+       <LinearLayout
+           android:background="@drawable/bg_present_card"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <View
+               android:layout_width="20dp"
+               android:background="@color/green"
+               android:layout_height="match_parent"/>
+
+           <TextView
+               android:layout_marginHorizontal="10dp"
+               android:layout_gravity="center"
+               android:textColor="@color/black"
+               android:fontFamily="@font/poppinsregular"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Present"/>
+
+           <TextView
+               android:id="@+id/tv_total_presents"
+               android:gravity="center"
+               android:layout_gravity="center_vertical|right"
+               android:fontFamily="@font/poppinsregular"
+               android:textSize="16sp"
+               android:text="0"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+
+
+       </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/absent_card"
+        android:layout_below="@id/present_card"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:background="@drawable/bg_absent_card"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="20dp"
+                android:background="@color/red"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Absent"/>
+            <TextView
+                android:id="@+id/tv_total_absents"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|right"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="16sp"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/absent_card"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:background="@drawable/bg_leave_card"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="20dp"
+                android:background="@color/blue"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leave"/>
+            <TextView
+                android:id="@+id/tv_total_leaves"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|right"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="16sp"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</RelativeLayout>

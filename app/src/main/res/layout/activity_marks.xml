@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_shape"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MarksActivity">
+
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="@color/purple_500">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/iv_back"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="5dp"
+          android:src="@drawable/ic_back" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="15dp"
+          android:layout_toRightOf="@id/iv_back"
+          android:text="Marks"
+          android:textColor="@color/white"
+          android:textSize="18sp"
+          android:textStyle="bold" />
+    </RelativeLayout>
+  </androidx.appcompat.widget.Toolbar>
+
+  <RelativeLayout
+      android:visibility="gone"
+      android:layout_below="@id/toolbar"
+      android:id="@+id/rl_sessions"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_width="match_parent"
+      android:paddingVertical="8dp"
+      android:layout_marginTop="10dp"
+      android:layout_height="40dp"
+      android:background="@drawable/bg_editext">
+
+    <Spinner
+        android:id="@+id/spin_sessions"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:entries="@array/sessions"
+        android:theme="@style/mySpinnerItemStyle" />
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:visibility="gone"
+      android:id="@+id/rl_cats"
+      android:layout_below="@id/rl_sessions"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_width="match_parent"
+      android:paddingVertical="8dp"
+      android:layout_marginTop="10dp"
+      android:layout_height="40dp"
+      android:background="@drawable/bg_editext">
+
+    <Spinner
+        android:id="@+id/spin_cat"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:entries="@array/categories"
+        android:theme="@style/mySpinnerItemStyle" />
+  </RelativeLayout>
+
+
+  <RelativeLayout
+      android:layout_below="@id/rl_cats"
+      android:id="@+id/rl_subs"
+      android:layout_width="match_parent"
+      android:paddingVertical="8dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_height="40dp"
+      android:background="@drawable/bg_editext">
+
+    <Spinner
+        android:id="@+id/spin_exams"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:theme="@style/mySpinnerItemStyle" />
+  </RelativeLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rv_students"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/card_header"
+      android:layout_marginBottom="10dp"
+      tools:itemCount="7"
+      tools:listitem="@layout/item_student_marks" />
+
+  <ProgressBar
+      android:visibility="gone"
+      android:id="@+id/progress_bar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:indeterminateTint="@color/teal_700"
+      android:layout_centerInParent="true"/>
+
+  <androidx.cardview.widget.CardView
+      android:layout_alignParentBottom="true"
+      android:id="@+id/card_sales_manager"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+
+      app:cardCornerRadius="2dp"
+      app:cardElevation="25dp">
+
+    <LinearLayout
+        android:weightSum="5"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+      <TextView
+          android:id="@+id/tv_subject_name"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:layout_marginStart="10dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginBottom="10dp"
+          android:layout_weight="3"
+          android:fontFamily="@font/poppinsmedium"
+          android:paddingVertical="4dp"
+          android:text="Total"
+          android:textStyle="bold"
+          android:paddingHorizontal="5dp"
+          android:textAllCaps="false"
+          android:textColor="@color/black"
+          android:textSize="17dp" />
+
+      <TextView
+          android:id="@+id/tv_total"
+          android:gravity="center"
+          android:background="@drawable/bg_totalmarks"
+          android:layout_weight="1"
+          android:layout_marginLeft="5dp"
+          android:layout_margin="5dp"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:fontFamily="@font/poppinsregular"
+          android:paddingVertical="4dp"
+          android:text="0"
+          android:padding="10dp"
+          android:textAllCaps="false"
+          android:textColor="@color/black"
+          android:textSize="12sp" />
+
+      <TextView
+          android:id="@+id/tv_obtained"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:layout_marginTop="5dp"
+          android:layout_weight="1"
+          android:background="@drawable/bg_obtainedmarks"
+          android:fontFamily="@font/poppinsregular"
+          android:gravity="center"
+          android:padding="10dp"
+          android:paddingVertical="4dp"
+          android:text="0"
+          android:textAllCaps="false"
+          android:textColor="@color/black"
+          android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+  </androidx.cardview.widget.CardView>
+
+
+  <androidx.cardview.widget.CardView
+      android:layout_below="@+id/rl_subs"
+      android:layout_marginVertical="10dp"
+      android:id="@+id/card_header"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+
+      app:cardCornerRadius="2dp"
+      app:cardElevation="5dp">
+
+    <LinearLayout
+        android:weightSum="5"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+      <TextView
+          android:id="@+id/tv_subject_ndfgame"
+          android:layout_width="0dp"
+          android:layout_marginLeft="10dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:layout_weight="3"
+          android:fontFamily="@font/poppinsmedium"
+          android:paddingVertical="4dp"
+          android:text="Subjects"
+          android:textStyle="bold"
+          android:paddingHorizontal="5dp"
+          android:textAllCaps="false"
+          android:textColor="@color/black"
+          android:textSize="17dp" />
+
+      <TextView
+          android:id="@+id/tv_tfghotal"
+          android:gravity="center"
+          android:background="@drawable/bg_totalmarks"
+          android:layout_weight="1"
+          android:layout_marginLeft="5dp"
+          android:layout_margin="5dp"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:fontFamily="@font/poppinsregular"
+          android:paddingVertical="4dp"
+          android:text="Total Marks"
+          android:padding="10dp"
+          android:textAllCaps="false"
+          android:textColor="@color/black"
+          android:textSize="12sp" />
+
+      <TextView
+          android:id="@+id/tv_obtasadined"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:layout_marginTop="5dp"
+          android:layout_weight="1"
+          android:background="@drawable/bg_obtainedmarks"
+          android:fontFamily="@font/poppinsregular"
+          android:gravity="center"
+          android:padding="10dp"
+          android:paddingVertical="4dp"
+          android:text="Obtain Marks"
+          android:textAllCaps="false"
+          android:textColor="@color/black"
+          android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+  </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

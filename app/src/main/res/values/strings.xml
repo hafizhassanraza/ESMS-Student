@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CGSC Sargodha</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="disclaimer">*If you have forgotten your credentials then contact your institute representative*</string>
+    <string name="school_name">Comprehensive Model Boys High School, Sargodha</string>
+
+
+    <string-array name="categories">
+        <item>General Exam</item>
+        <item>Phase Test</item>
+    </string-array>
+
+
+    <string-array name="sessions">
+        <item>2022-23</item>
+    </string-array>
+</resources>

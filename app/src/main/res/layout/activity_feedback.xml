@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedbackActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutt"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_500">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:text="Feedback"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp" />
+
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/new_feedback"
+        android:layout_below="@+id/layoutt">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_Feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/new_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/hint"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+
+        <EditText
+            android:id="@+id/feedback_heading"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_editext"
+            android:hint="Heading"
+            android:inputType="textCapWords"
+            android:paddingLeft="@dimen/_10sdp" />
+
+
+        <EditText
+            android:id="@+id/text_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_toStartOf="@+id/btn_submit_feedback"
+            android:background="@drawable/bg_editext"
+            android:hint="Enter Your feedback here"
+            android:paddingLeft="@dimen/_10sdp" />
+
+        <Button
+            android:id="@+id/btn_submit_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:backgroundTint="@color/purple_500"
+            android:text="Submit" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
